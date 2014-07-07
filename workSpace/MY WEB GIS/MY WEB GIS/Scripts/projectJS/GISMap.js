@@ -1,15 +1,14 @@
-﻿function Person(name, age, job) {
-    this.name = name;
-    this.age = age;
-    this.job = job;
-};
+﻿function GISMap() {
+    var mapObj = null;
+    if (typeof this.init != "function") {
+        GISMap.prototype.init = function () {
+            map = new OpenLayers.Map({ div: "map" });
 
-Person.prototype = {
-    constuctor: Person,
-    sayName: function () {
-        alert(this.name);
+            var osm = new OpenLayers.Layer.OSM();
+
+            map.addLayer(osm);
+            map.addControl(new OpenLayers.Control.LayerSwitcher());
+            map.zoomToMaxExtent();
+        };
     }
-};
-
-var person1 = new Person("jingwei", "18", "Engineer");
-person1.sayName();
+}

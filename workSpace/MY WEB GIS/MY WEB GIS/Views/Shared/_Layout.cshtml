@@ -7,8 +7,16 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <link rel="stylesheet" type="text/css" href="~/Scripts/3rdparty/OpenLayers/theme/default/style.css" />
+
     <script type="text/javascript" src="~/Scripts/3rdparty/OpenLayers/lib/OpenLayers.js"></script>
-    <script src="~/Scripts/projectJS/GISMap.js"></script>
+    <script type="text/javascript" src="~/Scripts/projectJS/GISMap.js"></script>
+    <script type="text/javascript">
+        function initMap() {
+            var gisMap = new GISMap();
+            gisMap.init();
+        }
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -31,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" onload="GISMap.init()">
+    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
